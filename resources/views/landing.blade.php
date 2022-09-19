@@ -17,13 +17,19 @@
                     <img src="/assets/corona.png"/>
                 </div>
 
-                <div class="flex items-center w-max ">
+                <div class="flex items-center w-max lg:ml-[769px]">
                     <p class="ml-14">English</p>
                     <div>
                         <img class="max-w-3 max-h-2 ml-2" src="/assets/tick.svg" />
                     </div>
                     <div>
-                        <img class="ml-10"src="/assets/menu.svg" />
+                        <img class="ml-10 lg:hidden"src="/assets/menu.svg" />
+                    </div>
+                    <div class="hidden lg:block lg:ml-12">
+                        <p class="font-black">Takeshi K.</p>
+                    </div>
+                    <div class="hidden lg:block lg:ml-6">
+                        <p>Log Out</p>
                     </div>
                 </div>
 
@@ -45,7 +51,7 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 lg:grid-cols-3">
+                <div class="grid grid-cols-2">
                     <div class="ml-4 mt-4 lg:mt-10 w-[164px] h-[193px] lg:w-[392px] lg:h-[255px] rounded-2xl bg-green-100">
                         <div class="flex flex-col items-center mt-4">
                             <img src="/assets/green.svg" />
