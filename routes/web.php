@@ -22,6 +22,6 @@ Route::get('reset-success', fn () => view('auth.reset-success'))->name('auth.res
 Route::get('register', fn () => view('register.create'))->name('register.create');
 Route::post('register', [RegisterController::class, 'register'])->name('register');
 
-Route::get('landing', fn () => view('landing'))->name('landing');
+Route::get('login', fn () => view('auth.create'))->name('auth.create');
 
-Route::get('/', fn () => view('auth.create'))->name('auth.create');
+Route::get('/', fn () => view('landing'))->name('landing');
