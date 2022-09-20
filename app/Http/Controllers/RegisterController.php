@@ -6,7 +6,7 @@ use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 
-class RegiserController extends Controller
+class RegisterController extends Controller
 {
 	public function register(RegisterRequest $request): RedirectResponse
 	{

@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegisterController;
+use App\Models\Stats;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,5 +25,9 @@ Route::get('register', fn () => view('register.create'))->name('register.create'
 Route::post('register', [RegisterController::class, 'register'])->name('register');
 
 Route::get('login', fn () => view('auth.create'))->name('auth.create');
+Route::post('login', [AuthController::class, 'login'])->name('login');
+Route::post('logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
+
+Route::get('stats', fn () => view('stats', ['stats' => Stats::all()]))->name('stats');
 
 Route::get('/', fn () => view('landing'))->name('landing');

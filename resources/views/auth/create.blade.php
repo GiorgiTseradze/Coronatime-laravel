@@ -28,8 +28,8 @@
                     <form method="POST" action="/login" class="mt-6">
                         @csrf
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
-                            <label for="username" class="font-bold">Username</label>
-                            <input name="username" placeholder="Enter unique username or email" class="border-2 mt-2 pl-6 h-14">
+                            <label for="email" class="font-bold">Username</label>
+                            <input name="email" placeholder="Enter unique username or email" class="border-2 mt-2 pl-6 h-14">
                         </div>
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
                             <label for="password" class="mt-4 font-bold">Password</label>
@@ -51,7 +51,7 @@
                     
                         <div class="flex justify-center mt-6">
                             <p class="text-gray-400 text-sm lg:text-base">Don't have an account?</p>
-                            <p class="font-bold ml-2 text-sm lg:text-base">Sign up for free</p>
+                            <p class="font-bold ml-2 text-sm lg:text-base"><a href="{{ route('register.create') }}">Sign up for free</a></p>
                         </div>
                     </form>
                 </div>
