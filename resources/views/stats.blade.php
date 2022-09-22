@@ -46,34 +46,51 @@
                     <h2 class="">Worldwide</h2>
                     <h2 class="ml-6">By country</h2>
                 </div>
-
-                
-                <div class="ml-4 lg:ml-26 mt-10 w-[343px] h-[193px] lg:w-[392px] lg:h-[255px] rounded-2xl bg-purple-100">
-                    <div class="flex flex-col items-center mt-6">
-                        <img src="/assets/purple.svg" />
-                        <p class="mt-4 font-medium text-base">New cases</p>
-                        <p class="mt-4 text-blue-700 font-black text-2xl">123,123</p>
-                    </div>
                 </div>
+                <div><p>Search</p></div>
 
-                <div class="grid grid-cols-2">
-                    <div class="ml-4 mt-4 lg:mt-10 w-[164px] h-[193px] lg:w-[392px] lg:h-[255px] rounded-2xl bg-green-100">
-                        <div class="flex flex-col items-center mt-4">
-                            <img src="/assets/green.svg" />
-                            <p class="mt-4 font-medium text-base">Recovered</p>
-                            <p class="mt-4 text-blue-700 font-black text-2xl">321,321</p>
-                        </div>
-                    </div>
-                    <div class="ml-4 mt-4 lg:mt-10 w-[164px] h-[193px] lg:w-[392px] lg:h-[255px] rounded-2xl bg-yellow-100">
-                        <div class="flex flex-col items-center mt-4">
-                            <img src="/assets/yellow.svg" />
-                            <p class="mt-4 font-medium text-base">Death</p>
-                            <p class="mt-4 text-blue-700 font-black text-2xl">213,213</p>
-                        </div>
-                    </div>
-                </div>
+
+<div class="overflow-x-auto relative mt-10">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="py-3 px-6">
+                    Location
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    New cases
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    Deaths
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    Recovered
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($stats as $stat)
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{ $stat->country }}
+                </th>
+                <td class="py-4 px-6">
+                    {{ $stat->cases }} 
+                </td>
+                <td class="py-4 px-6">
+                    {{ $stat->death }}
+                </td>
+                <td class="py-4 px-6">
+                    {{ $stat->recovered }}
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+
                
-            </div>
+
         </div>
     </body>
 </html>

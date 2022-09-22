@@ -33,15 +33,15 @@
                         </div>
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
                             <label for="email" class="font-bold">Email</label>
-                            <input name="email" placeholder="Enter your email" class="border-2 mt-2 pl-6 h-14">
+                            <input name="email" type="email" placeholder="Enter your email" class="border-2 mt-2 pl-6 h-14">
                         </div>
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
                             <label for="password" class="mt-4 font-bold">Password</label>
-                            <input name="password" placeholder="Fill in password" class="border-2 mt-2 pl-6 h-14" >
+                            <input name="password" type="password" placeholder="Fill in password" class="border-2 mt-2 pl-6 h-14" >
                         </div>
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
-                            <label for="repeat_password" class="mt-4 font-bold">Repeat Password</label>
-                            <input name="repeat_password" placeholder="Repeat password" class="border-2 mt-2 pl-6 h-14" >
+                            <label for="password_confirmation" class="mt-4 font-bold">Repeat Password</label>
+                            <input name="password_confirmation" type="password" placeholder="Repeat password" class="border-2 mt-2 pl-6 h-14" >
                         </div>
 
                         <div class="flex mt-6">
@@ -54,14 +54,13 @@
                         </div>
 
                         <div class="h-14 mt-7 flex justify-center items-center font-black text-white text-base bg-green-500 rounded">
-                            <button type="submit">LOG IN</button>
-                        </div>
-                    
-                        <div class="flex justify-center mt-6">
-                            <p class="text-gray-400 text-sm lg:text-base">Already have an account?</p>
-                            <p class="font-bold ml-2 text-sm lg:text-base">SIGN UP</p>
+                            <button type="submit">SIGN UP</button>
                         </div>
                     </form>
+                        <div class="flex justify-center mt-6">
+                            <p class="text-gray-400 text-sm lg:text-base">Already have an account?</p>
+                            <p class="font-bold ml-2 text-sm lg:text-base">LOG IN</p>
+                        </div>
                 </div>
             </div>
 
