@@ -10,12 +10,4 @@ class Stats extends Model
 	protected $guarded = ['id'];
 
 	use HasFactory;
-
-	protected $fillable = [
-		'code',
-		'country',
-		'death',
-		'recovered',
-		'cases',
-	];
 }

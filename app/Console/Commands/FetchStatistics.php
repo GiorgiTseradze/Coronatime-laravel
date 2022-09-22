@@ -29,19 +29,16 @@ class FetchStatistics extends Command
 	 */
 	public function handle()
 	{
-		$response = Http::withHeaders([
+		$countries = Http::withHeaders([
 			'accept' => 'application/json',
-		])->get('https://devtest.ge/countries');
-		$countries = $response->json();
+		])->get('https://devtest.ge/countries')->json();
 
 		foreach ($countries as $country)
 		{
-			$statistics = Http::withHeaders([
+			$stats = Http::withHeaders([
 				'accept'       => 'application/json',
 				'Content-Type' => 'application/json',
-			])->post('https://devtest.ge/get-country-statistics', ['code' => $country['code']]);
-
-			$stats = $statistics->json();
+			])->post('https://devtest.ge/get-country-statistics', ['code' => $country['code']])->json();
 
 			Stats::create([
 				'code'      => $stats['code'],
