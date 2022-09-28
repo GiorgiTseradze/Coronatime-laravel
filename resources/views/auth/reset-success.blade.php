@@ -21,7 +21,7 @@
                     <img src="/assets/checked.png"/>
                     <p class="text-base lg:text-lg mt-4">Your password has been updated successfully</p>
                     <button class=" h-14 mt-7 lg:h-14 lg:w-96 lg:mt-24 flex justify-center items-center font-black text-white text-base bg-green-500 rounded"
-                    type="submit">SIGN IN</button>
+                    type="submit"><a href="{{ route('auth.create') }}">SIGN IN</a></button>
                 </div>
 
             </div>

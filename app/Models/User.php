@@ -2,13 +2,16 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-class User extends Authenticatable
+// use Illuminate\Contracts\Auth\CanResetPassword;
+// use Illuminate\Auth\Passwords\CanResetPassword;
+
+class User extends Authenticatable implements MustVerifyEmail
 {
 	protected $guarded = ['id'];
 

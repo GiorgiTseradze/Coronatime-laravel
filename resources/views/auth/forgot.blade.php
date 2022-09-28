@@ -21,7 +21,7 @@
                         <h2 class="font-black text-xl lg:text-2xl">Reset Password</h2>
                     </div>
                     
-                    <form method="POST" action="/reset" class="mt-10 lg:mt-14">
+                    <form method="POST" action="/forgot-password" class="mt-10 lg:mt-14">
                         @csrf
 
                         <div class="flex flex-col w-full text-sm lg:text-base"> 

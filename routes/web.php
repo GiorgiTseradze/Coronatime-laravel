@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegisterController;
 use App\Models\Stats;
+use App\Models\WorldwideStats;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,10 +17,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('reset', fn () => view('auth.reset'))->name('auth.reset');
-Route::get('reset-password', fn () => view('auth.reset-password'))->name('auth.reset-password');
+Route::get('forgot', fn () => view('auth.forgot'))->name('password.request');
 Route::get('reset-confirm', fn () => view('auth.reset-confirm'))->name('auth.reset-confirm');
 Route::get('reset-success', fn () => view('auth.reset-success'))->name('auth.reset-success');
+
+Route::get('reset-password/{token}', fn ($token) => view('auth.reset-password', ['token' => $token]))->middleware('guest')->name('password.reset');
+
+Route::post('forgot-password', [AuthController::class, 'forgot'])->middleware('guest')->name('password.email');
+Route::post('reset-password', [AuthController::class, 'reset'])->middleware('guest')->name('password.update');
 
 Route::get('register', fn () => view('register.create'))->name('register.create');
 Route::post('register', [RegisterController::class, 'register'])->name('register');
@@ -28,6 +33,19 @@ Route::get('login', fn () => view('auth.create'))->name('auth.create');
 Route::post('login', [AuthController::class, 'login'])->name('login');
 Route::post('logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
 
-Route::get('stats', fn () => view('stats', ['stats' => Stats::all()]))->name('stats');
+Route::get('/', fn () => view('landing', ['stats' => WorldwideStats::all()]))->middleware('auth')->name('landing');
 
-Route::get('/', fn () => view('landing'))->name('landing');
+Route::get('stats', function () {
+	$stats = Stats::all();
+
+	if (request('search'))
+	{
+		$stats = Stats::where('country', 'like', '' . ucfirst(request('search')) . '%')->get();
+	}
+
+	return view('stats', [
+		'stats' => $stats,
+	]);
+})->middleware('auth')->name('stats');
+
+Route::get('mail', fn () => view('mail.signup'));

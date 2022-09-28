@@ -21,16 +21,24 @@
                         <h2 class="font-black text-xl lg:text-2xl">Reset Password</h2>
                     </div>
                     
-                    <form method="POST" action="/reset" class="mt-10 lg:mt-14">
+                    <form method="POST" action="/reset-password" class="mt-10 lg:mt-14">
                         @csrf
 
+                        <div class="flex flex-col w-full text-sm lg:text-base hidden"> 
+                            <label for="email" class="font-bold">Email</label>
+                            <input name="email" type="email" placeholder="Enter email" value="{{request('email')}}" class="border-2 mt-2 pl-6 h-14">
+                        </div>
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
                             <label for="password" class="font-bold">New Password</label>
-                            <input name="password" placeholder="Enter new password" class="border-2 mt-2 pl-6 h-14">
+                            <input name="password" type="password" placeholder="Enter new password" class="border-2 mt-2 pl-6 h-14">
                         </div>
                         <div class="flex flex-col w-full mt-4 text-sm lg:text-base"> 
-                            <label for="new_password" class="font-bold">Repeat Password</label>
-                            <input name="new_password" placeholder="Repeat password" class="border-2 mt-2 pl-6 h-14">
+                            <label for="password_confirmation" class="font-bold">Repeat Password</label>
+                            <input name="password_confirmation" type="password" placeholder="Repeat password" class="border-2 mt-2 pl-6 h-14">
+                        </div>
+                        <div class="flex flex-col w-full text-sm lg:text-base hidden"> 
+                            <label for="token" class="font-bold"></label>
+                            <input name="token" value="{{$token}}" placeholder="Enter new password" class="border-2 mt-2 pl-6 h-14">
                         </div>
 
                         <div class="h-14 mt-80 lg:mt-14 flex justify-center items-center font-black text-white text-base bg-green-500 rounded">
