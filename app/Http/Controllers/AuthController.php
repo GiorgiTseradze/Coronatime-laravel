@@ -29,7 +29,7 @@ class AuthController extends Controller
 		return redirect()->route('landing');
 	}
 
-	public function forgot(ForgotPasswordRequest $request)
+	public function forgot(ForgotPasswordRequest $request): RedirectResponse
 	{
 		$status = Password::sendResetLink(
 			$request->only('email')
@@ -40,7 +40,7 @@ class AuthController extends Controller
 					: back()->withErrors(['email' => __($status)]);
 	}
 
-	public function reset(ResetPasswordRequest $request)
+	public function reset(ResetPasswordRequest $request): RedirectResponse
 	{
 		$status = Password::reset(
 			$request->only('email', 'password', 'password_confirmation', 'token'),

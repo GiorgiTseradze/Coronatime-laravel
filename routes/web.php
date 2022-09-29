@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegisterController;
-use App\Models\Stats;
+use App\Http\Controllers\StatsController;
 use App\Models\WorldwideStats;
 use Illuminate\Support\Facades\Route;
 
@@ -26,7 +26,7 @@ Route::get('reset-password/{token}', fn ($token) => view('auth.reset-password', 
 Route::post('forgot-password', [AuthController::class, 'forgot'])->middleware('guest')->name('password.email');
 Route::post('reset-password', [AuthController::class, 'reset'])->middleware('guest')->name('password.update');
 
-Route::get('register', fn () => view('register.create'))->name('register.create');
+Route::get('register', fn () => view('register.create'))->middleware('guest')->name('register.create');
 Route::post('register', [RegisterController::class, 'register'])->name('register');
 
 Route::get('login', fn () => view('auth.create'))->name('auth.create');
@@ -35,17 +35,6 @@ Route::post('logout', [AuthController::class, 'logout'])->middleware('auth')->na
 
 Route::get('/', fn () => view('landing', ['stats' => WorldwideStats::all()]))->middleware('auth')->name('landing');
 
-Route::get('stats', function () {
-	$stats = Stats::all();
-
-	if (request('search'))
-	{
-		$stats = Stats::where('country', 'like', '' . ucfirst(request('search')) . '%')->get();
-	}
-
-	return view('stats', [
-		'stats' => $stats,
-	]);
-})->middleware('auth')->name('stats');
+Route::get('stats', [StatsController::class, 'country'])->middleware('auth')->name('stats');
 
 Route::get('mail', fn () => view('mail.signup'));
