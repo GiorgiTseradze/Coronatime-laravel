@@ -9,14 +9,14 @@
         </style> 
         <title>Coronatime</title>
     </head>
-    <body class="flex flex-col font-['inter'] w-full h-full">
+    <body class="flex flex-col justify-center items-center font-['inter'] w-full h-full">
 
-        <div class="w-[375px] lg:w-full lg:h-full">
+        <div class="w-[375px] lg:w-[1440px] lg:h-[1112px]">
             <div class="flex itmes-center justify-center flex-wrap mt-6 w-full">
                 <div class="ml-4">
-                    <img src="/assets/corona.png"/>
+                    <a href="/"><img src="/assets/corona.png"/></a>
                 </div>
-
+                
                 <div class="flex items-center w-max lg:ml-[769px]">
                     <p class="ml-14">English</p>
                     <div>
@@ -42,52 +42,65 @@
                     <h1 class="flex justify-center">Worldwide Statistics</h1>
                 </div>
 
-                <div class="flex justify-center mt-6 w-full ml-4">
-                    <h2 class="">Worldwide</h2>
-                    <h2 class="ml-6">By country</h2>
+                <div class="flex justify-center mt-6 lg:w-[1224px] ml-4 border-b-2">
+                    <div>
+                        <h2 class="mb-2"><a href="/">Worldwide</a></h2>
+                    </div>
+                    <div class="border-b-4 border-black ml-6">
+                        <h2 class="mb-2 font-black"><a href="/stats">By country</a></h2>
+                    </div>
+                   
                 </div>
+            </div>
+                
+            <div class="flex items-center mt-6 lg:ml-28 w-60 border lg:h-[48px]">
+                <img src="/assets/search.svg" class="ml-6 lg-ml:6 lg-h-[18px]"/>
+                <form method="GET" action="#">
+                    <input type="text" name="search" placeholder="Search by country" class="ml-2 w-full">
+                </form>
+            </div>
+
+            
+            <div class="flex justify-center relative mt-10 h-[414px] lg:h-[603px]">
+                <div class="overflow-x-auto">
+                <table class="text-sm text-left text-gray-500 dark:text-gray-400 w-full lg:w-[1224px] overflow-y-auto">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="py-3 ml-4 lg:px-6">
+                                Location
+                            </th>
+                            <th scope="col" class="py-3 ml-8 lg:px-6">
+                                New cases
+                            </th>
+                            <th scope="col" class="py-3 ml-8 lg:px-6">
+                                Deaths
+                            </th>
+                            <th scope="col" class="py-3 ml-8 lg:px-6">
+                                Recovered
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($stats as $stat)
+                        <tr class="h-12 bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                            <th scope="row" class="py-3 ml-4 lg:px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                {{ $stat->country }}
+                            </th>
+                            <td class="py-3 ml-8 lg:px-6">
+                                {{ $stat->cases }} 
+                            </td>
+                            <td class="py-3 ml-8 lg:px-6">
+                                {{ $stat->death }}
+                            </td>
+                            <td class="py-3 ml-8 lg:px-6">
+                                {{ $stat->recovered }}
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
                 </div>
-                <div><p>Search</p></div>
-
-
-<div class="overflow-x-auto relative mt-10">
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-                <th scope="col" class="py-3 px-6">
-                    Location
-                </th>
-                <th scope="col" class="py-3 px-6">
-                    New cases
-                </th>
-                <th scope="col" class="py-3 px-6">
-                    Deaths
-                </th>
-                <th scope="col" class="py-3 px-6">
-                    Recovered
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($stats as $stat)
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{ $stat->country }}
-                </th>
-                <td class="py-4 px-6">
-                    {{ $stat->cases }} 
-                </td>
-                <td class="py-4 px-6">
-                    {{ $stat->death }}
-                </td>
-                <td class="py-4 px-6">
-                    {{ $stat->recovered }}
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
+            </div>
 
                
 

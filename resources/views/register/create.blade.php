@@ -64,8 +64,8 @@
                 </div>
             </div>
 
-            <div class="hidden lg:flex lg:w-[604px] lg:h-[900px]">
-                <img src="/assets/vax.png" />
+            <div class="hidden lg:flex lg:w-[604px] min-h-screen">
+                <img class="h-full" src="/assets/vax.png" />
             </div>
         </div>
     </body>

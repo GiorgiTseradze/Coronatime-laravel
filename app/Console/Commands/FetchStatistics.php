@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\Stats;
+use App\Models\WorldwideStats;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 
@@ -33,6 +34,10 @@ class FetchStatistics extends Command
 			'accept' => 'application/json',
 		])->get('https://devtest.ge/countries')->json();
 
+		$recovered = null;
+		$death = null;
+		$cases = null;
+
 		foreach ($countries as $country)
 		{
 			$stats = Http::withHeaders([
@@ -47,6 +52,16 @@ class FetchStatistics extends Command
 				'death'     => $stats['deaths'],
 				'cases'     => $stats['confirmed'],
 			]);
+
+			$recovered += $stats['recovered'];
+			$death += $stats['deaths'];
+			$cases += $stats['confirmed'];
 		}
+
+		WorldwideStats::create([
+			'recovered' => $recovered,
+			'death'     => $death,
+			'cases'     => $cases,
+		]);
 	}
 }
