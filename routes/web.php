@@ -19,16 +19,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/login', 'auth.create')->name('auth.create');
-
-Route::view('/forgot', 'auth.forgot')->middleware('guest')->name('password.request');
 Route::get('/reset-password/{token}', fn ($token) => view('auth.reset-password', ['token' => $token]))->middleware('guest')->name('password.reset');
-Route::view('/reset-success', 'auth.reset-success')->middleware('guest')->name('auth.reset-success');
-
-Route::view('/register', 'register.create')->middleware('guest')->name('register.create');
-Route::view('/email/verify', 'auth.verify-email')->middleware('guest')->name('verification.notice');
+Route::view('/email/verify', 'auth.verify-email')->name('verification.notice');
 Route::get('/email/verify/{id}/{hash}', [RegisterController::class, 'verify'])->middleware(['auth'])->name('verification.verify');
 Route::view('/register-success', 'register.success')->middleware('auth')->name('register.success');
 Route::post('register', [RegisterController::class, 'register'])->name('register');
+
+Route::middleware('guest')
+->group(function () {
+	Route::view('/forgot', 'auth.forgot')->name('password.request');
+	Route::view('/register', 'register.create')->name('register.create');
+	Route::view('/reset-success', 'auth.reset-success')->name('auth.reset-success');
+});
 
 Route::controller(Authcontroller::class)
 ->group(function () {
