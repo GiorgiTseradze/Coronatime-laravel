@@ -43,7 +43,14 @@
                             <label for="password_confirmation" class="mt-4 font-bold">{{__('user.repeat_password')}}</label>
                             <input name="password_confirmation" type="password" placeholder="{{__('user.repeat_password')}}" class="border-2 mt-2 pl-6 h-14" >
                         </div>
-
+                        
+                        @foreach($errors->all() as $error)
+                            <span class="flex text-red-600 ml-1">
+                                <img src="/assets/error.svg" />
+                                <p class="ml-1">{{ $error }}</p>
+                            </span>
+                        @endforeach
+                        
                         <div class="flex mt-6">
                             <label for="remember"></label>
                             <input type="checkbox" name="remember">
