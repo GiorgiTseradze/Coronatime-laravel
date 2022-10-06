@@ -208,4 +208,13 @@ return [
 	'aliases' => Facade::defaultAliases()->merge([
 		// 'ExampleClass' => App\Example\ExampleClass::class,
 	])->toArray(),
+
+	/*
+	|--------------------------------------------------------------------------
+	| Custom Configuration
+	|--------------------------------------------------------------------------
+	|
+	|
+	*/
+	'available_locales'=> ['en', 'ka'],
 ];

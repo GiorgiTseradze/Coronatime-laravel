@@ -19,7 +19,7 @@
                 </div>
                 <div class="flex flex-col items-center justify-center h-96 lg:h-[600px] w-full">
                     <img src="/assets/checked.png"/>
-                    <p class="text-base lg:text-lg mt-4">We have sent you a confirmation email</p>
+                    <p class="text-base lg:text-lg mt-4">{{__('user.we_have_sent_you_a_confirmation_email')}}</p>
                 </div>
             </div>
     </body>

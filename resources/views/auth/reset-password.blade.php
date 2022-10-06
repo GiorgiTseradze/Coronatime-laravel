@@ -18,31 +18,31 @@
 
                 <div class="h-96">
                     <div class="flex justify-center mt-11 lg:mt-28">
-                        <h2 class="font-black text-xl lg:text-2xl">Reset Password</h2>
+                        <h2 class="font-black text-xl lg:text-2xl">{{__('user.reset_password')}}</h2>
                     </div>
                     
                     <form method="POST" action="/reset-password" class="mt-10 lg:mt-14">
                         @csrf
 
                         <div class="flex flex-col w-full text-sm lg:text-base hidden"> 
-                            <label for="email" class="font-bold">Email</label>
+                            <label for="email" class="font-bold">{{__('user.email')}}</label>
                             <input name="email" type="email" placeholder="Enter email" value="{{request('email')}}" class="border-2 mt-2 pl-6 h-14">
                         </div>
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
-                            <label for="password" class="font-bold">New Password</label>
-                            <input name="password" type="password" placeholder="Enter new password" class="border-2 mt-2 pl-6 h-14">
+                            <label for="password" class="font-bold">{{__('user.new_password')}}</label>
+                            <input name="password" type="password" placeholder="{{__('user.enter_new_password')}}" class="border-2 mt-2 pl-6 h-14">
                         </div>
                         <div class="flex flex-col w-full mt-4 text-sm lg:text-base"> 
-                            <label for="password_confirmation" class="font-bold">Repeat Password</label>
-                            <input name="password_confirmation" type="password" placeholder="Repeat password" class="border-2 mt-2 pl-6 h-14">
+                            <label for="password_confirmation" class="font-bold">{{__('user.repeat_password')}}</label>
+                            <input name="password_confirmation" type="password" placeholder="{{__('user.repeat_password')}}" class="border-2 mt-2 pl-6 h-14">
                         </div>
                         <div class="flex flex-col w-full text-sm lg:text-base hidden"> 
                             <label for="token" class="font-bold"></label>
-                            <input name="token" value="{{$token}}" placeholder="Enter new password" class="border-2 mt-2 pl-6 h-14">
+                            <input name="token" value="{{$token}}" placeholder="{{__('user.repeat_new_password')}}" class="border-2 mt-2 pl-6 h-14">
                         </div>
 
                         <div class="h-14 mt-80 lg:mt-14 flex justify-center items-center font-black text-white text-base bg-green-500 rounded">
-                            <button type="submit">SAVE CHANGES</button>
+                            <button type="submit">{{__('user.save_changes')}}</button>
                         </div>
                     </form>
                 </div>

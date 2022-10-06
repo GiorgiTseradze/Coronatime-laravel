@@ -19,25 +19,26 @@
 
                 <div class="">
                     <div class="mt-11 lg:mt-[60px]">
-                        <h2 class="font-black text-xl lg:text-2xl">Welcome back</h2>
+                        <h2 class="font-black text-xl lg:text-2xl">{{__('user.welcome_back')}}</h2>
                     </div>
                     <div>
-                        <p class="mt-2 lg:mt-2 text-gray-400 text-base lgtext-xl">Welcome back! Please enter your details</p>
+                        <p class="mt-2 lg:mt-2 text-gray-400 text-base lgtext-xl">{{__('user.please_enter_your_details')}}</p>
                     </div>
                     
                     <form method="POST" action="/login" class="mt-6">
                         @csrf
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
-                            <label for="username" class="font-bold">Username</label>
-                            <input name="username" type="username" value="{{ old('username') ?: old('email') }}" required autofocus placeholder="Enter unique username or email" class="border-2 mt-2 pl-6 h-14">
+                            <label for="username" class="font-bold">{{__('user.username')}}</label>
+                            <input name="username" type="username" value="{{ old('username') ?: old('email') }}" required autofocus placeholder="{{__('user.enter_unique_username_or_email')}}" class="border-2 mt-2 pl-6 h-14">
                         </div>
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
-                            <label for="password" class="mt-4 font-bold">Password</label>
-                            <input name="password" type="password" value="{{ old('username') ?: old('email') }}" required autofocus placeholder="Fill in password" class="border-2 mt-2 pl-6 h-14" >
+                            <label for="password" class="mt-4 font-bold">{{__('user.password')}}</label>
+                            <input name="password" type="password" value="{{ old('username') ?: old('email') }}" required autofocus placeholder="{{__('user.fill_in_password')}}" class="border-2 mt-2 pl-6 h-14" >
                         </div>
                         @foreach($errors->all() as $error)
-                            <span>
-                                <strong>{{ $error }}</strong>
+                            <span class="flex text-red-600 ml-1">
+                                <img src="/assets/error.svg" />
+                                <p class="ml-1">{{ $error }}</p>
                             </span>
                         @endforeach
 
@@ -45,24 +46,23 @@
                             <label for="remember"></label>
                             <input type="checkbox" name="remember">
 
-                            <p class="ml-2 text-sm font-semibold">Remember this device</p>
+                            <p class="ml-2 text-sm font-semibold">{{__('user.remember_this_device')}}</p>
 
-                            <p class="ml-11 text-blue-600 font-semibold text-sm"><a href="{{ route('password.request') }}">Forgot password?</a></p>
+                            <p class="ml-11 text-blue-600 font-semibold text-sm"><a href="{{ route('password.request') }}">{{__('user.forgot_password')}}</a></p>
                         </div>
 
                         <div class="h-14 mt-7 flex justify-center items-center font-black text-white text-base bg-green-500 rounded">
-                            <button type="submit">LOG IN</button>
+                            <button type="submit">{{__('user.log_in')}}</button>
                         </div>
                     </form>
                     
                         <div class="flex justify-center mt-6">
-                            <p class="text-gray-400 text-sm lg:text-base">Don't have an account?</p>
-                            <p class="font-bold ml-2 text-sm lg:text-base"><a href="{{ route('register.create') }}">Sign up for free</a></p>
+                            <p class="text-gray-400 text-sm lg:text-base">{{__('user.dont_have_an_account')}}</p>
+                            <p class="font-bold ml-2 text-sm lg:text-base"><a href="{{ route('register.create') }}">{{__('user.register_for_free')}}</a></p>
                         </div>
 
                 </div>
             </div>
-
             <div class="hidden lg:flex lg:w-[604px] min-h-screen">
                 <img class="h-full" src="/assets/vax.png" />
             </div>

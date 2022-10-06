@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterRequest;
-use App\Mail\SignupEmail;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 class RegisterController extends Controller
 {
@@ -19,16 +19,18 @@ class RegisterController extends Controller
 				'password' => bcrypt($request->password),
 			]);
 
-			$data = [
-				'name'              => $request->username,
-				'verification_code' => 'ASDASD',
-			];
-
-			Mail::to($request->email)->send(new SignupEmail($data));
+			event(new Registered($user));
 
 			auth()->login($user);
 
-			return redirect('/');
+			return redirect()->route('verification.notice');
 		}
+	}
+
+	public function verify(EmailVerificationRequest $request): RedirectResponse
+	{
+		$request->fulfill();
+
+		return redirect()->route('register.success');
 	}
 }

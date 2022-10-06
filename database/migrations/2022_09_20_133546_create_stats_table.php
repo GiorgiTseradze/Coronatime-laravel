@@ -15,7 +15,7 @@ return new class extends Migration {
 		Schema::create('stats', function (Blueprint $table) {
 			$table->id();
 			$table->string('code');
-			$table->string('country');
+			$table->json('country');
 			$table->integer('recovered');
 			$table->integer('death');
 			$table->integer('cases');
