@@ -45,13 +45,17 @@ class FetchStatistics extends Command
 				'Content-Type' => 'application/json',
 			])->post('https://devtest.ge/get-country-statistics', ['code' => $country['code']])->json();
 
-			Stats::create([
-				'code'      => $stats['code'],
-				'country'   => $stats['country'],
-				'recovered' => $stats['recovered'],
-				'death'     => $stats['deaths'],
-				'cases'     => $stats['confirmed'],
-			]);
+			Stats::updateOrCreate(
+				[
+					'code'      => $stats['code'],
+				],
+				[
+					'country'   => ['en' => $country['name']['en'], 'ka' => $country['name']['ka']],
+					'recovered' => $stats['recovered'],
+					'death'     => $stats['deaths'],
+					'cases'     => $stats['confirmed'],
+				]
+			);
 
 			$recovered += $stats['recovered'];
 			$death += $stats['deaths'];

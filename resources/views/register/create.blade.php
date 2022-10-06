@@ -19,47 +19,54 @@
 
                 <div class="">
                     <div class="mt-11 lg:mt-[60px]">
-                        <h2 class="font-black text-xl lg:text-2xl">Welcome to Coronatime</h2>
+                        <h2 class="font-black text-xl lg:text-2xl">{{__('user.welcome_to_coronatime')}}</h2>
                     </div>
                     <div>
-                        <p class="mt-2 lg:mt-2 text-gray-400 text-base lg:text-xl">Please enter required info to sign up</p>
+                        <p class="mt-2 lg:mt-2 text-gray-400 text-base lg:text-xl">{{__('user.please_enter_required_info_to_sign_up')}}</p>
                     </div>
                     
                     <form method="POST" action="/register" class="mt-6">
                         @csrf
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
-                            <label for="username" class="font-bold">Username</label>
-                            <input name="username" placeholder="Enter unique username" class="border-2 mt-2 pl-6 h-14">
+                            <label for="username" class="font-bold">{{__('user.username')}}</label>
+                            <input name="username" placeholder="{{__('user.enter_unique_username')}}" class="border-2 mt-2 pl-6 h-14">
                         </div>
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
-                            <label for="email" class="font-bold">Email</label>
-                            <input name="email" type="email" placeholder="Enter your email" class="border-2 mt-2 pl-6 h-14">
+                            <label for="email" class="font-bold">{{__('user.email')}}</label>
+                            <input name="email" type="email" placeholder="{{__('user.enter_your_email')}}" class="border-2 mt-2 pl-6 h-14">
                         </div>
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
-                            <label for="password" class="mt-4 font-bold">Password</label>
-                            <input name="password" type="password" placeholder="Fill in password" class="border-2 mt-2 pl-6 h-14" >
+                            <label for="password" class="mt-4 font-bold">{{__('user.password')}}</label>
+                            <input name="password" type="password" placeholder="{{__('user.fill_in_password')}}" class="border-2 mt-2 pl-6 h-14" >
                         </div>
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
-                            <label for="password_confirmation" class="mt-4 font-bold">Repeat Password</label>
-                            <input name="password_confirmation" type="password" placeholder="Repeat password" class="border-2 mt-2 pl-6 h-14" >
+                            <label for="password_confirmation" class="mt-4 font-bold">{{__('user.repeat_password')}}</label>
+                            <input name="password_confirmation" type="password" placeholder="{{__('user.repeat_password')}}" class="border-2 mt-2 pl-6 h-14" >
                         </div>
-
+                        
+                        @foreach($errors->all() as $error)
+                            <span class="flex text-red-600 ml-1">
+                                <img src="/assets/error.svg" />
+                                <p class="ml-1">{{ $error }}</p>
+                            </span>
+                        @endforeach
+                        
                         <div class="flex mt-6">
                             <label for="remember"></label>
                             <input type="checkbox" name="remember">
 
-                            <p class="ml-2 text-sm font-semibold">Remember this device</p>
+                            <p class="ml-2 text-sm font-semibold">{{__('user.remember_this_device')}}</p>
 
-                            <p class="ml-11 text-blue-600 font-semibold text-sm">Forgot password?</p>
+                            <p class="ml-11 text-blue-600 font-semibold text-sm"><a href="/forgot">{{__('user.forgot_password')}}</a></p>
                         </div>
 
                         <div class="h-14 mt-7 flex justify-center items-center font-black text-white text-base bg-green-500 rounded">
-                            <button type="submit">SIGN UP</button>
+                            <button type="submit">{{__('user.register')}}</button>
                         </div>
                     </form>
                         <div class="flex justify-center mt-6">
-                            <p class="text-gray-400 text-sm lg:text-base">Already have an account?</p>
-                            <p class="font-bold ml-2 text-sm lg:text-base">LOG IN</p>
+                            <p class="text-gray-400 text-sm lg:text-base">{{__('user.already_have_an_account')}}</p>
+                            <p class="font-bold ml-2 text-sm lg:text-base"><a href="/login">{{__('user.log_in')}}</a></p>
                         </div>
                 </div>
             </div>

@@ -25,6 +25,7 @@ class AuthController extends Controller
 				'password' => 'invalid password',
 			]);
 		}
+
 		session()->regenerate();
 		return redirect()->route('landing');
 	}
@@ -36,7 +37,7 @@ class AuthController extends Controller
 		);
 
 		return $status === Password::RESET_LINK_SENT
-					? redirect()->route('auth.reset-confirm')
+					? redirect()->route('verification.notice')
 					: back()->withErrors(['email' => __($status)]);
 	}
 
