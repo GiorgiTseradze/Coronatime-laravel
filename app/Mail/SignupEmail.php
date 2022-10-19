@@ -27,6 +27,8 @@ class SignupEmail extends Mailable
 	 */
 	public function build()
 	{
-		return $this->from(address: 'hello@example.com', name: 'coronatime')->subject(subject: 'Welcome')->view('mail.signup', ['mail_data' => $this->signup_mail_data]);
+		return $this->from(address: 'hello@example.com', name: 'coronatime')
+		->subject(subject: 'Welcome')
+		->view('mail.signup', ['mail_data' => $this->signup_mail_data]);
 	}
 }

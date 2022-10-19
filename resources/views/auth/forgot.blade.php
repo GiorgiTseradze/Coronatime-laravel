@@ -28,6 +28,12 @@
                             <label for="email" class="font-bold">{{__('user.email')}}</label>
                             <input name="email" placeholder="Enter your email" class="border-2 mt-2 pl-6 h-14">
                         </div>
+                        @error('email')
+                        <span class="flex text-red-600 ml-1 mt-1">
+                            <img src="/assets/error.svg" />
+                            <p class="ml-1">{{ $message }}</p>
+                        </span>
+                        @enderror
 
                         <div class="h-14 mt-80 lg:mt-14 flex justify-center items-center font-black text-white text-base bg-green-500 rounded">
                             <button type="submit">{{__('user.reset_password')}}</button>

@@ -8,7 +8,7 @@ return [
 	'recovered'                                     => 'Recovered',
 	'worldwide'                                     => 'Worldwide',
 	'by_country'                                    => 'By Country',
-	'worldwide_statistics'                          => 'Worldwide Statitics',
+	'worldwide_statistics'                          => 'Worldwide Statistics',
 	'statistics_by_country'                         => 'Statistics by country',
 	'search_by_country'                             => 'Search by country',
 	'english'                                       => 'English',
