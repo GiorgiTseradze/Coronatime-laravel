@@ -66,4 +66,21 @@ class RegisterTest extends TestCase
 		Mail::assertSent(SignupEmail::class);
 		$response->assertRedirect(route('verification.notice'));
 	}
+
+	public function test_fullfil_registration_verification()
+	{
+		$user = User::factory()->create([
+			'username'         => 'giorgi',
+			'email'            => 'giorgi@redberry.ge',
+			'password'         => bcrypt('password'),
+			'email_verified_at'=> null,
+		]);
+
+		$hash = sha1($user->getEmailForVerification());
+		$id = $user->id;
+
+		$path = route('verification.verify', ['id' => $id, 'hash' => $hash]);
+		$response = $this->actingAs($user)->get($path);
+		$response->assertRedirect(route('register.success'));
+	}
 }
