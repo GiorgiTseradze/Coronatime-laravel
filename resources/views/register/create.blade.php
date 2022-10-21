@@ -31,10 +31,24 @@
                             <label for="username" class="font-bold">{{__('user.username')}}</label>
                             <input name="username" placeholder="{{__('user.enter_unique_username')}}" class="border-2 mt-2 pl-6 h-14">
                         </div>
+                        @error('username')
+                        <span class="flex text-red-600 ml-1 mt-1">
+                            <img src="/assets/error.svg" />
+                            <p class="ml-1">{{ $message }}</p>
+                        </span>
+                        @enderror
+
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
                             <label for="email" class="font-bold">{{__('user.email')}}</label>
                             <input name="email" type="email" placeholder="{{__('user.enter_your_email')}}" class="border-2 mt-2 pl-6 h-14">
                         </div>
+                        @error('email')
+                        <span class="flex text-red-600 ml-1 mt-1">
+                            <img src="/assets/error.svg" />
+                            <p class="ml-1">{{ $message }}</p>
+                        </span>
+                        @enderror
+        
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
                             <label for="password" class="mt-4 font-bold">{{__('user.password')}}</label>
                             <input name="password" type="password" placeholder="{{__('user.fill_in_password')}}" class="border-2 mt-2 pl-6 h-14" >
@@ -43,13 +57,12 @@
                             <label for="password_confirmation" class="mt-4 font-bold">{{__('user.repeat_password')}}</label>
                             <input name="password_confirmation" type="password" placeholder="{{__('user.repeat_password')}}" class="border-2 mt-2 pl-6 h-14" >
                         </div>
-                        
-                        @foreach($errors->all() as $error)
-                            <span class="flex text-red-600 ml-1">
-                                <img src="/assets/error.svg" />
-                                <p class="ml-1">{{ $error }}</p>
-                            </span>
-                        @endforeach
+                        @error('password')
+                        <span class="flex text-red-600 ml-1 mt-1">
+                            <img src="/assets/error.svg" />
+                            <p class="ml-1">{{ $message }}</p>
+                        </span>
+                        @enderror
                         
                         <div class="flex mt-6">
                             <label for="remember"></label>

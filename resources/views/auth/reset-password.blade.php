@@ -28,10 +28,17 @@
                             <label for="email" class="font-bold">{{__('user.email')}}</label>
                             <input name="email" type="email" placeholder="Enter email" value="{{request('email')}}" class="border-2 mt-2 pl-6 h-14">
                         </div>
+
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
                             <label for="password" class="font-bold">{{__('user.new_password')}}</label>
                             <input name="password" type="password" placeholder="{{__('user.enter_new_password')}}" class="border-2 mt-2 pl-6 h-14">
                         </div>
+                        @error('password')
+                        <span class="flex text-red-600 ml-1 mt-1">
+                            <img src="/assets/error.svg" />
+                            <p class="ml-1">{{ $message }}</p>
+                        </span>
+                        @enderror
                         <div class="flex flex-col w-full mt-4 text-sm lg:text-base"> 
                             <label for="password_confirmation" class="font-bold">{{__('user.repeat_password')}}</label>
                             <input name="password_confirmation" type="password" placeholder="{{__('user.repeat_password')}}" class="border-2 mt-2 pl-6 h-14">

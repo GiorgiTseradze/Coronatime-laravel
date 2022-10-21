@@ -22,7 +22,7 @@ class AuthController extends Controller
 		if (!auth()->attempt($request->only($field, 'password'), $request->remember)
 		) {
 			throw ValidationException::withMessages([
-				'password' => 'invalid password',
+				'username' => 'Invalid username',
 			]);
 		}
 
@@ -65,6 +65,6 @@ class AuthController extends Controller
 	{
 		auth()->logout();
 
-		return redirect('/');
+		return redirect('/login');
 	}
 }
