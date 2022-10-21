@@ -1,7 +1,6 @@
 
 <div style="display:flex; align-items: center">
-  <img src="readme/assets/logo.png" alt="drawing" width="100" style="margin-right: 20px" />
-  <h1 style="position:relative; top: -6px" >Moviequotes</h1>
+  <h1 style="position:relative; top: -6px" >Coronatime</h1>
 </div>
 
 ---
@@ -19,23 +18,23 @@ Coronatime provides information about current Covid Statistics both by country a
 #
 ### Prerequisites
 
-* <img src="readme/assets/php.svg" width="35" style="position: relative; top: 4px" /> *PHP 8.1.9*
-* <img src="readme/assets/mysql.png" width="35" style="position: relative; top: 4px" /> *MYSQL@8.0.30*
-* <img src="readme/assets/npm.png" width="35" style="position: relative; top: 4px" /> *npm@6.14.17*
-* <img src="readme/assets/composer.png" width="35" style="position: relative; top: 6px" /> *composer@2.4.1*
+* *PHP 8.1.9*
+* *MYSQL@8.0.30*
+* *npm@6.14.17*
+* *composer@2.4.1*
 
 
 #
 ### Tech Stack
 
-* <img src="readme/assets/laravel.png" height="18" style="position: relative; top: 4px" /> [Laravel@9.19](https://laravel.com/docs/9.x) - back-end framework
-* <img src="readme/assets/spatie.png" height="19" style="position: relative; top: 4px" /> [Spatie Translatable](https://github.com/spatie/laravel-translatable) - package for translation
+* [Laravel@9.19](https://laravel.com/docs/9.x) - back-end framework
+* [Spatie Translatable](https://github.com/spatie/laravel-translatable) - package for translation
 
 #
 ### Getting Started
-1\. First of all you need to clone E Space repository from github:
+1\. First of all you need to clone repository from github:
 ```sh
-git clone https://github.com/RedberryInternship/giorgi-tseradze-movie-quotes.git
+git clone https://github.com/RedberryInternship/giorgi-tseradze-coronatime.git
 ```
 
 2\. Next step requires you to run *composer install* in order to install all the dependencies.
