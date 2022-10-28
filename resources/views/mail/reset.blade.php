@@ -9,22 +9,28 @@
         </style> 
         <title>Coronatime</title>
     </head>
-    <body stlye="display:flex; flex-direction:column; font-family:'inter'; width:full; height:full; ">
+    <body stlye="font-family:'inter'; width:full; height:full; ">
         <div style="width: 100%; height: 100%;">
             
-            <div style="display:flex; flex-direction:column; justify-content:center; align-items:center; width:100%;">
+            <div style="margin: auto; width:343px;">
                 <img src="{{ $message->embed(public_path() . '/assets/mail.png')}}" style="width:343px; height:241px; margin-top: 16px;"/>  
             </div>
              
-            <div style="display:flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; margin-top: 40px;">
-                <h1 style="font-size: 24px; font-weight: bold;">{{__('user.reset_password')}}</h1>
-                <p style="font-size: 16px; margin-top: 8px;">{{__('user.click_this_button_to_verify_your_email')}}</p>
+            <div style="margin: auto; width: 343px; margin-top: 40px;">
+                <div>
+                    <h1 style="margin: auto;  width: 53%; font-size: 24px; font-weight: bold;">{{__('user.reset_password')}}</h1>
+                </div>
+                <div>
+                    <p style="margin: auto; width: 77%; font-size: 16px; margin-top: 8px;">{{__('user.click_this_button_to_verify_your_email')}}</p>
+                </div>
             </div>
-            <div style="display:flex; justify-content:center; width:100%;">
-                <div style="background-color: rgb(34 197 94); height: 56px; margin-top: 24px; display:flex; flex-direction:column; width:343px; justify-content:center; align-items:center; font-size:16px; border-radius: 25px;">
-                    <a style="text-decoration: none; font-family:'inter'; color:white; font-weight:bold;" href="{{ $url }}">{{__('user.recover_password')}}</a>
+            <div style="margin: auto; width:343px; height:70px;">
+                <div style="background-color: #22c55e; height: 56px; margin-top: 24px; width:343px; font-size:16px; border-radius: 25px;">
+                        <a href="{{ $url }}" style="display: block; margin: auto; width: 45%; padding-top: 4%; text-decoration: none; font-family:'inter'; color:white; font-weight:bold;" >{{__('user.recover_password')}}</a>
                 </div>
             </div>
         </div>
     </body>
 </html>
+
+
