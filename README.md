@@ -6,6 +6,8 @@
 ---
 Coronatime provides information about current Covid Statistics both by country and around the world. Data is updated daily. Content is available in English and Georgian languages. Seeing the data requires email verification and authoritation.
 
+Page link: http://coronatime.giorgi-tseradze.redberryinternship.ge/
+
 #
 ### Table of Contents
 * [Prerequisites](#prerequisites)
