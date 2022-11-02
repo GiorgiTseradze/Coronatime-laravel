@@ -59,7 +59,7 @@
                         </div>
 
                         <div class="h-14 mt-7 flex justify-center items-center font-black text-white text-base bg-green-500 rounded">
-                            <button type="submit">{{__('user.log_in')}}</button>
+                            <button class="px-40 py-4" type="submit">{{__('user.log_in')}}</button>
                         </div>
                     </form>
                     
