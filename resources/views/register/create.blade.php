@@ -10,14 +10,13 @@
         <title>Coronatime</title>
     </head>
     <body class="flex flex-col items-center font-['inter'] w-full h-full">
-        <div class="grid lg:grid-cols-2">
+        <div class="grid lg:grid-cols-2 lg:w-full lg:h-screen">
 
-            <div class="w-[343px] lg:w-[392px]">
-                <div class="mt-6 w-full">
-                    <img src="/assets/corona.png"/>
-                </div>
-
-                <div class="">
+            <div class="lg:flex lg:flex-col lg:items-center w-[343px] lg:w-full">
+                <div class="lg:w-[392px]">
+                    <div class="mt-6 w-full">
+                        <img src="/assets/corona.png"/>
+                    </div>
                     <div class="mt-11 lg:mt-[60px]">
                         <h2 class="font-black text-xl lg:text-2xl">{{__('user.welcome_to_coronatime')}}</h2>
                     </div>
@@ -29,7 +28,7 @@
                         @csrf
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
                             <label for="username" class="font-bold">{{__('user.username')}}</label>
-                            <input name="username" placeholder="{{__('user.enter_unique_username')}}" class="border-2 mt-2 pl-6 h-14">
+                            <input name="username" value="{{ old('username') ?: old('email') }}" placeholder="{{__('user.enter_unique_username')}}" class="border-2 mt-2 pl-6 h-14">
                         </div>
                         @error('username')
                         <span class="flex text-red-600 ml-1 mt-1">
@@ -40,7 +39,7 @@
 
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
                             <label for="email" class="font-bold">{{__('user.email')}}</label>
-                            <input name="email" type="email" placeholder="{{__('user.enter_your_email')}}" class="border-2 mt-2 pl-6 h-14">
+                            <input name="email" value="{{ old('email') }}" placeholder="{{__('user.enter_your_email')}}" class="border-2 mt-2 pl-6 h-14">
                         </div>
                         @error('email')
                         <span class="flex text-red-600 ml-1 mt-1">
@@ -84,8 +83,8 @@
                 </div>
             </div>
 
-            <div class="hidden lg:flex lg:w-[604px] min-h-screen">
-                <img class="h-full" src="/assets/vax.png" />
+            <div class="hidden lg:flex lg:w-full min-h-screen">
+                <img class="h-full w-full" src="/assets/vax.png" />
             </div>
         </div>
     </body>
