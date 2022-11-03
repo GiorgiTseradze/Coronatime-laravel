@@ -120,7 +120,7 @@
                 <div class="flex rounded">
                 <img src="/assets/search.svg" class="ml-6 lg-ml:6 lg-h-[18px]"/>
                 <form method="GET" action="#">
-                    <input type="text" name="search" placeholder="{{__('texts.search_by_country')}}" class="ml-2 w-full">
+                    <input type="text" name="search" placeholder="{{__('texts.search_by_country')}}" class="ml-2 w-full outline-none">
                 </form>
             </div>
             </div>
@@ -151,7 +151,7 @@
                             </th>
                             <th scope="col" class="flex items-center w-22 py-3 ml-10 lg:ml-36 lg:px-6">
                                 <div class="flex w-[88px]">
-                                    {{__('texts.new_cases')}}
+                                    <p>{{__('texts.new_cases')}}</p>
                                     <div class="flex flex-col ml-1 items-center justify-center">
                                         <a href="{{ route('stats') . "?column=cases&order=asc&search=".request('search') }}">
                                             <div class="w-4 h-2">
@@ -168,7 +168,8 @@
                             </th>
                             <th scope="col" class="flex items-center py-3 w-24 lg:ml-36">
                                 <div class="flex w-16">
-                                    {{__('texts.deaths')}}
+                                    <p class="block lg:hidden">{{__('texts.dea_ths')}}</p>  
+                                    <p class="hidden lg:block">{{__('texts.deaths')}}</p>
                                     <div class="flex flex-col ml-1 lg:ml-2 items-center justify-center">
                                         <a href="{{ route('stats') . "?column=death&order=asc&search=".request('search') }}">
                                             <div class="w-4 h-2">
@@ -185,7 +186,8 @@
                             </th>
                             <th scope="col" class="flex items-center w-30 py-3 lg:px-6">
                                 <div class="flex w-30 lg:ml-36">
-                                    {{__('texts.recovered')}}
+                                    <p class="ml-6 block lg:hidden">{{__('texts.reco_vered')}}</p>
+                                    <p class="ml-0 hidden lg:block">{{__('texts.recovered')}}</p>
                                     <div class="flex flex-col lg:ml-2 items-center justify-center">
                                         <a href="{{ route('stats') . "?column=recovered&order=asc&search=".request('search') }}">
                                             <div class="w-4 h-2">
