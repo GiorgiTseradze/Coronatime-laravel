@@ -29,7 +29,11 @@
                         @csrf
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
                             <label for="username" class="font-bold">{{__('user.username')}}</label>
-                            <input name="username" type="username" value="{{ old('username') ?: old('email') }}" autofocus placeholder="{{__('user.enter_unique_username_or_email')}}" class="border-2 mt-2 pl-6 h-14">
+                            <input name="username" type="username" value="{{ old('username') ?: old('email') }}" autofocus placeholder="{{__('user.enter_unique_username_or_email')}}" 
+                            class="
+                            outline-0 rounded-lg border-2 mt-2 pl-6 h-14 focus:border-[#2029f3]
+                            {{$errors->has('username') ? 'border-red-500 ' : ''}}
+                            {{!$errors->has('username') ?' active:border-green-500 ': ''}}">
                         </div>
                         @error('username')
                         <span class="flex text-red-600 ml-1 mt-1">
@@ -40,7 +44,8 @@
 
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
                             <label for="password" class="mt-4 font-bold">{{__('user.password')}}</label>
-                            <input name="password" type="password" autofocus placeholder="{{__('user.fill_in_password')}}" class="border-2 mt-2 pl-6 h-14" >
+                            <input name="password" type="password" value="{{ old('username') ?: old('email') }}" autofocus placeholder="{{__('user.fill_in_password')}}" 
+                            class="focus:border-[#2029f3] outline-0 rounded-lg border-2 mt-2 pl-6 h-14" >
                         </div>
                         @error('password')
                         <span class="flex text-red-600 ml-1 mt-1">

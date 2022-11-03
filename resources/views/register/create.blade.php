@@ -28,7 +28,8 @@
                         @csrf
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
                             <label for="username" class="font-bold">{{__('user.username')}}</label>
-                            <input name="username" value="{{ old('username') ?: old('email') }}" placeholder="{{__('user.enter_unique_username')}}" class="border-2 mt-2 pl-6 h-14">
+                            <input name="username" value="{{ old('username') ?: old('email') }}" placeholder="{{__('user.enter_unique_username')}}" 
+                            class="focus:border-[#2029f3] outline-0 rounded-lg border-2 mt-2 pl-6 h-14">
                         </div>
                         @error('username')
                         <span class="flex text-red-600 ml-1 mt-1">
@@ -39,7 +40,8 @@
 
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
                             <label for="email" class="font-bold">{{__('user.email')}}</label>
-                            <input name="email" value="{{ old('email') }}" placeholder="{{__('user.enter_your_email')}}" class="border-2 mt-2 pl-6 h-14">
+                            <input name="email" type="email" value="{{ old('email') }}" placeholder="{{__('user.enter_your_email')}}" 
+                            class="focus:border-[#2029f3] outline-0 rounded-lg border-2 mt-2 pl-6 h-14">
                         </div>
                         @error('email')
                         <span class="flex text-red-600 ml-1 mt-1">
@@ -50,11 +52,13 @@
         
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
                             <label for="password" class="mt-4 font-bold">{{__('user.password')}}</label>
-                            <input name="password" type="password" placeholder="{{__('user.fill_in_password')}}" class="border-2 mt-2 pl-6 h-14" >
+                            <input name="password" type="password" placeholder="{{__('user.fill_in_password')}}" 
+                            class="focus:border-[#2029f3] outline-0 rounded-lg border-2 mt-2 pl-6 h-14" >
                         </div>
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
                             <label for="password_confirmation" class="mt-4 font-bold">{{__('user.repeat_password')}}</label>
-                            <input name="password_confirmation" type="password" placeholder="{{__('user.repeat_password')}}" class="border-2 mt-2 pl-6 h-14" >
+                            <input name="password_confirmation" type="password" placeholder="{{__('user.repeat_password')}}" 
+                            class="focus:border-[#2029f3] outline-0 rounded-lg border-2 mt-2 pl-6 h-14" >
                         </div>
                         @error('password')
                         <span class="flex text-red-600 ml-1 mt-1">
