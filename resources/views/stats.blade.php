@@ -18,7 +18,7 @@
                     <a href="/"><img src="/assets/corona.png"/></a>
                 </div>
                 
-                <div class="flex items-center w-max lg:ml-[769px]">
+                <div class="flex items-center w-max lg:ml-[769px] ml-4 h-10">
 
                     <div class="flex justify-center">
                         <div
@@ -86,10 +86,10 @@
                     </div>
 
                     <div>
-                        <img class="ml-10 lg:hidden"src="/assets/menu.svg" />
+                        <img class="lg:ml-10 lg:hidden"src="/assets/menu.svg" />
                     </div>
                     @auth
-                    <div class="hidden lg:block lg:ml-12">
+                    <div class="hidden lg:block lg:ml-8">
                         <p class="font-black">{{ auth()->user()->username }}</p>
                     </div>
                     @endauth
