@@ -101,11 +101,11 @@
                     @endauth
                 </div>
                 
-                <div class="flex font-black text-xl mt-12 lg:w-[1224px] ">
+                <div class="flex font-black text-xl mt-12 lg:ml-8 lg:w-[1224px]">
                     <h1 class="lg:justify-start flex justify-center">{{__('texts.worldwide_statistics')}}</h1>
                 </div>
 
-                <div class="lg:justify-start flex justify-center mt-6 lg:w-[1224px] border-b-2">
+                <div class="lg:justify-start flex justify-center lg:ml-8 mt-6 lg:w-[1224px] border-b-2">
                         <div class="border-b-4 border-black">
                             <h2 class="mb-2 font-black"><a href="/">{{__('texts.worldwide')}}</a></h2>
                         </div>
