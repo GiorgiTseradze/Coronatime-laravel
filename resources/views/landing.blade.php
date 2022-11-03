@@ -19,7 +19,7 @@
                     <a href="/"><img src="/assets/corona.png"/></a>
                 </div>
 
-                <div class="flex items-center w-max lg:ml-[769px] ml-12">
+                <div class="flex items-center w-max lg:ml-[769px]">
                     <div class="flex justify-center items-center">
                         <div
                             x-data="{
