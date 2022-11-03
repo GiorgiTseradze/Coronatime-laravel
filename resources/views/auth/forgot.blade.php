@@ -36,7 +36,7 @@
                         @enderror
 
                         <div class="h-14 mt-80 lg:mt-14 flex justify-center items-center font-black text-white text-base bg-green-500 rounded">
-                            <button type="submit">{{__('user.reset_password')}}</button>
+                            <button class="px-40 py-4" type="submit">{{__('user.reset_password')}}</button>
                         </div>
                     </form>
                 </div>
