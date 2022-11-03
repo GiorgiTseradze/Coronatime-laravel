@@ -18,7 +18,7 @@
 
                 <div class="h-96">
                     <div class="flex justify-center mt-11 lg:mt-36">
-                        <h2 class="font-black text-xl lg:text-2xl">{{__('user.email')}}</h2>
+                        <h2 class="font-black text-xl lg:text-2xl">{{__('user.reset_password')}}</h2>
                     </div>
                     
                     <form method="POST" action="/forgot-password" class="mt-10 lg:mt-14">
@@ -36,7 +36,7 @@
                         @enderror
 
                         <div class="h-14 mt-80 lg:mt-14 flex justify-center items-center font-black text-white text-base bg-green-500 rounded">
-                            <button type="submit">{{__('user.reset_password')}}</button>
+                            <button class="px-40 py-4" type="submit">{{__('user.reset_password')}}</button>
                         </div>
                     </form>
                 </div>

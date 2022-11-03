@@ -10,14 +10,14 @@
         <title>Coronatime</title>
     </head>
     <body class="flex flex-col items-center font-['inter'] w-full h-full">
-        <div class="grid lg:grid-cols-2">
+        <div class="grid lg:grid-cols-2 lg:w-full lg:h-screen">
 
-            <div class="w-[343px] lg:w-[392px]">
-                <div class="mt-6 w-full">
-                    <img src="/assets/corona.png"/>
-                </div>
-
-                <div class="">
+            <div class="lg:flex lg:flex-col lg:items-center w-[343px] lg:w-full">
+    
+                <div class="lg:w-[392px]">
+                    <div class="mt-6 w-full">
+                        <img src="/assets/corona.png"/>
+                    </div>
                     <div class="mt-11 lg:mt-[60px]">
                         <h2 class="font-black text-xl lg:text-2xl">{{__('user.welcome_back')}}</h2>
                     </div>
@@ -29,7 +29,7 @@
                         @csrf
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
                             <label for="username" class="font-bold">{{__('user.username')}}</label>
-                            <input name="username" type="username" value="{{ old('username') ?: old('email') }}" required autofocus placeholder="{{__('user.enter_unique_username_or_email')}}" 
+                            <input name="username" type="username" value="{{ old('username') ?: old('email') }}" autofocus placeholder="{{__('user.enter_unique_username_or_email')}}" 
                             class="
                             outline-0 rounded-lg border-2 mt-2 pl-6 h-14 focus:border-[#2029f3]
                             {{$errors->has('username') ? 'border-red-500 ' : ''}}
@@ -44,7 +44,7 @@
 
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
                             <label for="password" class="mt-4 font-bold">{{__('user.password')}}</label>
-                            <input name="password" type="password" value="{{ old('username') ?: old('email') }}" required autofocus placeholder="{{__('user.fill_in_password')}}" 
+                            <input name="password" type="password" value="{{ old('username') ?: old('email') }}" autofocus placeholder="{{__('user.fill_in_password')}}" 
                             class="focus:border-[#2029f3] outline-0 rounded-lg border-2 mt-2 pl-6 h-14" >
                         </div>
                         @error('password')
@@ -64,7 +64,7 @@
                         </div>
 
                         <div class="h-14 mt-7 flex justify-center items-center font-black text-white text-base bg-green-500 rounded">
-                            <button type="submit">{{__('user.log_in')}}</button>
+                            <button class="px-40 py-4" type="submit">{{__('user.log_in')}}</button>
                         </div>
                     </form>
                     
@@ -75,8 +75,8 @@
 
                 </div>
             </div>
-            <div class="hidden lg:flex lg:w-[604px] min-h-screen">
-                <img class="h-full" src="/assets/vax.png" />
+            <div class="hidden lg:flex lg:w-full min-h-screen">
+                <img class="h-full w-full" src="/assets/vax.png" />
             </div>
         </div>
     </body>
