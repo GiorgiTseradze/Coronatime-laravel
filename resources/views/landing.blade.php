@@ -11,7 +11,7 @@
 
         <title>Coronatime</title>
     </head>
-    <body class="flex flex-col lg:items-center justify-center items-center font-['inter'] w-full h-full">
+    <body class="flex flex-col lg:items-center justify-center items-center font-['inter'] w-full h-full overflow-hidden">
 
         <div class="flex flex-col lg:items-center w-[343px] lg:w-[1440px] lg:h-[1112px]">
             <div class="flex flex-wrap items-center lg:justify-center mt-6 w-full">

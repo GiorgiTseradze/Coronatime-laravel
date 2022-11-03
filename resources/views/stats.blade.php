@@ -10,7 +10,7 @@
         <script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
         <title>Coronatime</title>
     </head>
-    <body class="flex flex-col justify-center items-center font-['inter'] w-full h-full">
+    <body class="flex flex-col justify-center items-center font-['inter'] w-full h-full overflow-hidden">
 
         <div class="flex flex-col w-[375px] lg:w-[1440px] lg:h-[1112px]">
             <div class="flex itmes-center flex-wrap mt-6 w-full">
