@@ -11,7 +11,7 @@
     </head>
     <body class="flex flex-col items-center font-['inter'] w-full h-full">
 
-            <div class="w-[343px] lg:w-[392px]">
+            <div class="w-[21.4rem] lg:w-[24.5rem]">
                 <div class="flex lg:justify-center mt-6 w-full">
                     <img src="/assets/corona.png"/>
                 </div>

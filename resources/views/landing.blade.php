@@ -13,13 +13,13 @@
     </head>
     <body class="flex flex-col lg:items-center justify-center items-center font-['inter'] w-full h-full overflow-hidden">
 
-        <div class="flex flex-col lg:items-center w-[343px] lg:w-[1440px] lg:h-[1112px]">
+        <div class="flex flex-col lg:items-center w-[21.4rem] lg:w-[90rem] lg:h-[69.5rem]">
             <div class="flex flex-wrap items-center lg:justify-center mt-6 w-full">
-                <div class="">
+                <div class="lg:ml-8">
                     <a href="/"><img src="/assets/corona.png"/></a>
                 </div>
 
-                <div class="flex items-center w-max lg:ml-[769px]">
+                <div class="flex items-center w-max ml-3 lg:ml-[48rem]">
                     <div class="flex justify-center items-center">
                         <div
                             x-data="{
@@ -84,9 +84,71 @@
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <img class="lg:hidden"src="/assets/menu.svg" />
+
+                    {{-- logout for mobile --}}
+                    <div class="flex justify-center">
+                        <div
+                            x-data="{
+                                open: false,
+                                toggle() {
+                                    if (this.open) {
+                                        return this.close()
+                                    }
+
+                                    this.$refs.button.focus()
+
+                                    this.open = true
+                                },
+                                close(focusAfter) {
+                                    if (! this.open) return
+
+                                    this.open = false
+
+                                    focusAfter && focusAfter.focus()
+                                }
+                            }"
+                            x-on:keydown.escape.prevent.stop="close($refs.button)"
+                            x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+                            x-id="['dropdown-button']"
+                            class="w-25 relative"
+                        >
+                            <!-- Button -->
+                            <button
+                                x-ref="button"
+                                x-on:click="toggle()"
+                                :aria-expanded="open"
+                                :aria-controls="$id('dropdown-button')"
+                                type="button"
+                                class="flex items-center gap-2 bg-white py-2.5 rounded"
+                            >
+
+                                <!-- Heroicon: chevron-down -->
+                                <div>
+                                    <img class="lg:ml-10 ml-3 lg:hidden" src="/assets/menu.svg" />
+                                </div>
+                            </button>
+
+                            <!-- Panel -->
+                            <div
+                                x-ref="panel"
+                                x-show="open"
+                                x-transition.origin.top.left
+                                x-on:click.outside="close($refs.button)"
+                                :id="$id('dropdown-button')"
+                                style="display: none;"
+                                class="absolute left-0 mt-2 rounded-md bg-white"
+                            >
+                            <div class="text-xs">
+                                <form method="POST" action="/logout">
+                                    @csrf
+                                    <button type="submit">{{__('user.log_out')}}</button>
+                                </form>
+                            </div>
+
+                            </div>
+                        </div>
                     </div>
+
                     @auth
                     <div class="hidden lg:block lg:ml-12">
                         <p class="font-black">{{ auth()->user()->username }}</p>
@@ -101,11 +163,11 @@
                     @endauth
                 </div>
                 
-                <div class="flex font-black text-xl mt-12 lg:ml-8 lg:w-[1224px]">
+                <div class="flex font-black text-xl mt-12 lg:ml-8 lg:w-[76.5rem]">
                     <h1 class="lg:justify-start flex justify-center">{{__('texts.worldwide_statistics')}}</h1>
                 </div>
 
-                <div class="lg:justify-start flex justify-center lg:ml-8 mt-6 lg:w-[1224px] border-b-2">
+                <div class="lg:justify-start flex justify-center lg:ml-8 mt-6 lg:w-[76.5rem] border-b-2">
                         <div class="border-b-4 border-black">
                             <h2 class="mb-2 font-black"><a href="/">{{__('texts.worldwide')}}</a></h2>
                         </div>
@@ -114,7 +176,7 @@
                         </div>
                 </div>
 
-                <div class="lg:ml-26 mt-10 w-[343px] h-[193px] lg:w-[392px] lg:h-[255px] rounded-2xl bg-purple-100">
+                <div class="lg:ml-26 mt-10 w-[21.4rem] h-[12rem] lg:w-[24.5rem] lg:h-[15.9rem] rounded-2xl bg-purple-100">
                     <div class="flex flex-col items-center mt-6 lg:mt-10">
                         <img src="/assets/purple.svg" />
                         <p class="mt-4 font-medium text-base">{{__('texts.new_cases')}}</p>
@@ -123,14 +185,14 @@
                 </div>
 
                 <div class=" grid grid-cols-2">
-                    <div class="mt-4 lg:ml-2 lg:mt-10 w-[164px] h-[193px] lg:w-[392px] lg:h-[255px] rounded-2xl bg-green-100">
+                    <div class="mt-4 lg:ml-2 lg:mt-10 w-[10.2rem] h-[12rem] lg:w-[24.5rem] lg:h-[15.9rem] rounded-2xl bg-green-100">
                         <div class="flex flex-col items-center mt-12">
                             <img src="/assets/green.svg" />
                             <p class="mt-4 font-medium text-base">{{__('texts.recovered')}}</p>
                             <p class="mt-4 text-blue-700 font-black text-2xl">{{ $stats[0]->recovered }}</p>
                         </div>
                     </div>
-                    <div class="ml-2 mt-4 lg:mt-10 w-[164px] h-[193px] lg:w-[392px] lg:h-[255px] rounded-2xl bg-yellow-100">
+                    <div class="ml-2 mt-4 lg:mt-10 w-[10.2rem] h-[12rem] lg:w-[24.5rem] lg:h-[15.9rem] rounded-2xl bg-yellow-100">
                         <div class="flex flex-col items-center mt-12">
                             <img src="/assets/yellow.svg" />
                             <p class="mt-4 font-medium text-base">{{__('texts.deaths')}}</p>

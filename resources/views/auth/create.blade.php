@@ -12,13 +12,13 @@
     <body class="flex flex-col items-center font-['inter'] w-full h-full">
         <div class="grid lg:grid-cols-2 lg:w-full lg:h-screen">
 
-            <div class="lg:flex lg:flex-col lg:items-center w-[343px] lg:w-full">
+            <div class="lg:flex lg:flex-col lg:items-center w-[21.4rem] lg:w-full">
     
-                <div class="lg:w-[392px]">
+                <div class="lg:w-[24.5rem]">
                     <div class="mt-6 w-full">
                         <img src="/assets/corona.png"/>
                     </div>
-                    <div class="mt-11 lg:mt-[60px]">
+                    <div class="mt-11 lg:mt-[3.7rem]">
                         <h2 class="font-black text-xl lg:text-2xl">{{__('user.welcome_back')}}</h2>
                     </div>
                     <div>
