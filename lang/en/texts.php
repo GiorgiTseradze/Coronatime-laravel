@@ -5,6 +5,8 @@ return [
 	'location'                                      => 'Location',
 	'new_cases'                                     => 'New cases',
 	'deaths'                                        => 'Deaths',
+	'dea_ths'                                    	  => 'Deaths',
+	'reco_vered'                                    => 'Recovered',
 	'recovered'                                     => 'Recovered',
 	'worldwide'                                     => 'Worldwide',
 	'by_country'                                    => 'By Country',

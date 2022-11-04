@@ -12,13 +12,13 @@
     </head>
     <body class="flex flex-col justify-center items-center font-['inter'] w-full h-full overflow-hidden">
 
-        <div class="flex flex-col w-[375px] lg:w-[1440px] lg:h-[1112px]">
+        <div class="flex flex-col w-[23.4rem] lg:w-[90rem] lg:h-[69.5rem]">
             <div class="flex itmes-center flex-wrap mt-6 w-full">
                 <div class="ml-4 lg:ml-8">
                     <a href="/"><img src="/assets/corona.png"/></a>
                 </div>
                 
-                <div class="flex items-center w-max lg:ml-[769px] ml-4 h-10">
+                <div class="flex items-center w-max lg:ml-[48rem] ml-4 h-10">
 
                     <div class="flex justify-center">
                         <div
@@ -84,10 +84,7 @@
                             </div>
                         </div>
                     </div>
-
-                    <div>
-                        <img class="lg:ml-10 lg:hidden"src="/assets/menu.svg" />
-                    </div>
+                    
                     @auth
                     <div class="hidden lg:block lg:ml-8">
                         <p class="font-black">{{ auth()->user()->username }}</p>
@@ -99,13 +96,92 @@
                             <button type="submit">{{__('user.log_out')}}</button>
                         </form>
                     </div>
+                    <div class="flex items-center lg:hidden w-max lg:ml-[48rem] h-10">
+
+                    {{-- logout for mobile --}}
+
+                        <div class="flex justify-center">
+                            <div
+                                x-data="{
+                                    open: false,
+                                    toggle() {
+                                        if (this.open) {
+                                            return this.close()
+                                        }
+    
+                                        this.$refs.button.focus()
+    
+                                        this.open = true
+                                    },
+                                    close(focusAfter) {
+                                        if (! this.open) return
+    
+                                        this.open = false
+    
+                                        focusAfter && focusAfter.focus()
+                                    }
+                                }"
+                                x-on:keydown.escape.prevent.stop="close($refs.button)"
+                                x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+                                x-id="['dropdown-button']"
+                                class="w-25 relative"
+                            >
+                                <!-- Button -->
+                                <button
+                                    x-ref="button"
+                                    x-on:click="toggle()"
+                                    :aria-expanded="open"
+                                    :aria-controls="$id('dropdown-button')"
+                                    type="button"
+                                    class="flex items-center gap-2 bg-white py-2.5 rounded"
+                                >
+    
+                                    <!-- Heroicon: chevron-down -->
+                                    <div>
+                                        <img class="lg:ml-10 ml-3 lg:hidden" src="/assets/menu.svg" />
+                                    </div>
+                                </button>
+    
+                                <!-- Panel -->
+                                <div
+                                    x-ref="panel"
+                                    x-show="open"
+                                    x-transition.origin.top.left
+                                    x-on:click.outside="close($refs.button)"
+                                    :id="$id('dropdown-button')"
+                                    style="display: none;"
+                                    class="absolute left-0 mt-2 rounded-md bg-white"
+                                >
+                                <div class="text-xs">
+                                    <form method="POST" action="/logout">
+                                        @csrf
+                                        <button type="submit">{{__('user.log_out')}}</button>
+                                    </form>
+                                </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                        
+                        @auth
+                        <div class="hidden lg:block lg:ml-8">
+                            <p class="font-black">{{ auth()->user()->username }}</p>
+                        </div>
+                        @endauth
+                        <div class="hidden lg:block lg:ml-6">
+                            <form method="POST" action="/logout">
+                                @csrf
+                                <button type="submit">{{__('user.log_out')}}</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="font-black text-xl lg:ml-8 mt-12 w-full ml-4">
                     <h1 class="lg:justify-start flex ">{{__('texts.statistics_by_country')}}</h1>
                 </div>
 
-                <div class="justify-start flex mt-6 lg:w-[1224px] ml-4 lg:ml-8 border-b-2">
+                <div class="justify-start flex mt-6 lg:w-[76.5rem] ml-4 lg:ml-8 border-b-2">
                     <div>
                         <h2 class="mb-2"><a href="/">{{__('texts.worldwide')}}</a></h2>
                     </div>
@@ -116,20 +192,20 @@
                 </div>
             </div>
                 
-            <div class="flex items-center mt-6 lg:ml-8 w-60 lg:h-[48px] lg:border">
+            <div class="flex items-center mt-6 lg:ml-8 w-64 lg:h-[3rem] lg:border">
                 <div class="flex rounded">
-                <img src="/assets/search.svg" class="ml-6 lg-ml:6 lg-h-[18px]"/>
+                <img src="/assets/search.svg" class="ml-6 lg-ml:6 lg-h-[1.1rem]"/>
                 <form method="GET" action="#">
                     <input type="text" name="search" placeholder="{{__('texts.search_by_country')}}" class="ml-2 w-full outline-none">
                 </form>
             </div>
-            </div>
+        </div>
 
             
-            <div class="flex lg:justify-center ml-4 w-96 lg:w-[1224px]  mt-10 h-[414px] lg:h-[603px]">
+            <div class="flex lg:justify-center ml-4 w-96 lg:w-[76.5rem]  mt-10 h-[25.8rem] lg:h-[37.5rem]">
                 <div class="overflow-x-auto">
-                <table class="text-sm text-left text-gray-500 dark:text-gray-400 w-[375px] lg:w-[1224px] overflow-y-auto">
-                    <thead class="lg:w-[1224px] text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <table class="text-sm text-left text-gray-500 dark:text-gray-400 w-[23.4rem] lg:w-[76.5rem] overflow-y-auto">
+                    <thead class="lg:w-[76.5rem] text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr class="flex w-20">
                             <th scope="col" class="flex items-center w-14 py-3 lg:px-6">
                                     <div class="flex">
@@ -150,7 +226,7 @@
                                 </div>
                             </th>
                             <th scope="col" class="flex items-center w-22 py-3 ml-10 lg:ml-36 lg:px-6">
-                                <div class="flex w-[88px]">
+                                <div class="flex w-[5.5rem]">
                                     <p>{{__('texts.new_cases')}}</p>
                                     <div class="flex flex-col ml-1 items-center justify-center">
                                         <a href="{{ route('stats') . "?column=cases&order=asc&search=".request('search') }}">
@@ -210,13 +286,13 @@
                             <th scope="row" class="flex lg:w-20 lg:ml-5 w-10 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 {{ $stat->country }}
                             </th>
-                            <td class="flex py-3 ml-20 lg:ml-[125px] w-20">
+                            <td class="flex py-3 ml-20 lg:ml-[7.8rem] w-20">
                                 {{ $stat->cases }} 
                             </td>
                             <td class="py-3 w-20 lg:ml-44">
                                 {{ $stat->death }}
                             </td>
-                            <td class="py-3 w-20 lg:ml-[152px]">
+                            <td class="py-3 w-20 lg:ml-[9.5rem]">
                                 {{ $stat->recovered }}
                             </td>
                         </tr>

@@ -12,12 +12,12 @@
     <body class="flex flex-col items-center font-['inter'] w-full h-full">
         <div class="grid lg:grid-cols-2 lg:w-full lg:h-screen">
 
-            <div class="lg:flex lg:flex-col lg:items-center w-[343px] lg:w-full">
-                <div class="lg:w-[392px]">
+            <div class="lg:flex lg:flex-col lg:items-center w-[21.4rem] lg:w-full">
+                <div class="lg:w-[24.5rem]">
                     <div class="mt-6 w-full">
                         <img src="/assets/corona.png"/>
                     </div>
-                    <div class="mt-11 lg:mt-[60px]">
+                    <div class="mt-11 lg:mt-[3.7rem]">
                         <h2 class="font-black text-xl lg:text-2xl">{{__('user.welcome_to_coronatime')}}</h2>
                     </div>
                     <div>
@@ -29,7 +29,12 @@
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
                             <label for="username" class="font-bold">{{__('user.username')}}</label>
                             <input name="username" value="{{ old('username') ?: old('email') }}" placeholder="{{__('user.enter_unique_username')}}" 
-                            class="focus:border-[#2029f3] outline-0 rounded-lg border-2 mt-2 pl-6 h-14">
+                            class="outline-0 rounded-lg border-2 mt-2 pl-6 h-14 focus:border-[#2029f3]
+                            {{$errors->has('username') ? 'border-red-500 ' : ''}}
+                            {{!$errors->has('username') && old('username') ? ' border-green-500 ' : ''}}">
+                            @if(!$errors->has('username') && old('username'))
+                            <img class="absolute mt-12 ml-[18.7rem] lg:ml-[21.8rem]" src="/assets/validated.svg" />
+                            @endif                        
                         </div>
                         @error('username')
                         <span class="flex text-red-600 ml-1 mt-1">
@@ -38,10 +43,15 @@
                         </span>
                         @enderror
 
-                        <div class="flex flex-col w-full text-sm lg:text-base"> 
+                        <div class="flex flex-col w-full text-sm lg:text-base mt-4"> 
                             <label for="email" class="font-bold">{{__('user.email')}}</label>
                             <input name="email" type="email" value="{{ old('email') }}" placeholder="{{__('user.enter_your_email')}}" 
-                            class="focus:border-[#2029f3] outline-0 rounded-lg border-2 mt-2 pl-6 h-14">
+                            class="outline-0 rounded-lg border-2 mt-2 pl-6 h-14 focus:border-[#2029f3]
+                            {{$errors->has('email') ? 'border-red-500 ' : ''}}
+                            {{!$errors->has('email') && old('email') ? ' border-green-500 ' : ''}}">
+                            @if(!$errors->has('email') && old('email'))
+                            <img class="absolute mt-12 ml-[18.7rem] lg:ml-[21.8rem]" src="/assets/validated.svg" />
+                            @endif                        
                         </div>
                         @error('email')
                         <span class="flex text-red-600 ml-1 mt-1">

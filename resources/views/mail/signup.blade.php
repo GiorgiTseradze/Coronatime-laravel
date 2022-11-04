@@ -12,16 +12,16 @@
     <body stlye="font-family:'inter'; width:full; height:full; ">
         <div style="width: 100%; height: 100%;">
             
-            <div style="margin: auto; width:343px;">
-                <img src="{{ $message->embed(public_path() . '/assets/mail.png')}}" style="width:343px; height:241px; margin-top: 16px;"/>  
+            <div style="margin: auto; width:21.4rem;">
+                <img src="{{ $message->embed(public_path() . '/assets/mail.png')}}" style="width:21.4rem; height:15rem; margin-top: 1rem;"/>  
             </div>
              
-            <div style="margin: auto; width: 343px; margin-top: 40px;">
-                <h1 style="margin: auto;  width: 67%; font-size: 24px; font-weight: bold;">{{__('user.confirmation_email')}}</h1>
-                <p style="margin: auto;  width: 77%; font-size: 16px; margin-top: 8px;">{{__('user.click_this_button_to_verify_your_email')}}</p>
+            <div style="margin: auto; width: 21.4rem; margin-top: 2.5rem;">
+                <h1 style="margin: auto;  width: 67%; font-size: 1.5rem; font-weight: bold;">{{__('user.confirmation_email')}}</h1>
+                <p style="margin: auto;  width: 77%; font-size: 1rem; margin-top: 0.5rem;">{{__('user.click_this_button_to_verify_your_email')}}</p>
             </div>
-            <div style="margin: auto; width:343px; height:70px;">
-                <div style="background-color: #22c55e;  height: 56px; margin-top: 24px; width:343px; font-weight: bold; font-size:16px; color:white; border-radius: 25px;">
+            <div style="margin: auto; width:21.4rem; height:4.3rem;">
+                <div style="background-color: #22c55e;  height: 3.5rem; margin-top: 1.5rem; width:21.4rem; font-weight: bold; font-size:1rem; color:white; border-radius: 1.5rem;">
                     <a href="{{ $url }}" style="display: block; margin: auto; width: 30%; padding-top: 4%; text-decoration: none; font-family:'inter'; color:white; font-weight:bold;" >{{__('user.verify_email')}}</a>
                 </div>
             </div>
