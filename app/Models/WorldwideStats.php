@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class WorldwideStats extends Model
 {
-	protected $guarded = ['id'];
-
 	use HasFactory;
+
+	protected $guarded = ['id'];
 }

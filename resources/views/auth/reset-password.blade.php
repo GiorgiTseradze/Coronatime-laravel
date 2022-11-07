@@ -21,7 +21,7 @@
                         <h2 class="font-black text-xl lg:text-2xl">{{__('user.reset_password')}}</h2>
                     </div>
                     
-                    <form method="POST" action="/reset-password" class="mt-10 lg:mt-14">
+                    <form method="POST" action="{{route('password.email')}}" class="mt-10 lg:mt-14">
                         @csrf
 
                         <div class="flex flex-col w-full text-sm lg:text-base hidden"> 
@@ -52,7 +52,7 @@
                         </div>
 
                         <div class="h-14 mt-80 lg:mt-14 flex justify-center items-center font-black text-white text-base bg-green-500 rounded">
-                            <button class="px-40 py-4" type="submit">{{__('user.save_changes')}}</button>
+                            <button class="px-32 lg:px-40 py-4" type="submit">{{__('user.save_changes')}}</button>
                         </div>
                     </form>
                 </div>
