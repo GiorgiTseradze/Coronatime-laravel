@@ -14,7 +14,7 @@
 
             <div class="lg:flex lg:flex-col lg:items-center w-[21.4rem] lg:w-full">
     
-                <div class="lg:w-[24.5rem]">
+                <div class="lg:w-[26rem]">
                     <div class="mt-6 w-full">
                         <img src="/assets/corona.png"/>
                     </div>
@@ -74,7 +74,7 @@
                 </div>
             </div>
             <div class="hidden lg:flex lg:w-full min-h-screen">
-                <img class="h-full w-full" src="/assets/vax.png" />
+                <img class="h-full w-full lg:ml-60 lg:w-3/4" src="/assets/vax.png" />
             </div>
         </div>
     </body>
