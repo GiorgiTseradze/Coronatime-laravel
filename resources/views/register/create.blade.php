@@ -24,7 +24,7 @@
                         <p class="mt-2 lg:mt-2 text-gray-400 text-base lg:text-xl">{{__('user.please_enter_required_info_to_sign_up')}}</p>
                     </div>
                     
-                    <form method="POST" action="/register" class="mt-6">
+                    <form method="POST" action="{{route('register')}}" class="mt-6">
                         @csrf
                         <div class="flex flex-col w-full text-sm lg:text-base"> 
                             <label for="username" class="font-bold">{{__('user.username')}}</label>
@@ -87,7 +87,7 @@
                         </div>
 
                         <div class="h-14 mt-7 flex justify-center items-center font-black text-white text-base bg-green-500 rounded">
-                            <button class="px-40 py-4" type="submit">{{__('user.register')}}</button>
+                            <button class="px-32 lg:px-40 py-4" type="submit">{{__('user.register')}}</button>
                         </div>
                     </form>
                         <div class="flex justify-center mt-6">

@@ -14,8 +14,8 @@
     <body class="flex flex-col lg:items-center justify-center items-center font-['inter'] w-full h-full overflow-hidden">
 
         <div class="flex flex-col lg:items-center w-[21.4rem] lg:w-[90rem] lg:h-[69.5rem]">
-            <div class="flex flex-wrap items-center lg:justify-center mt-6 w-full">
-                <div class="lg:ml-8">
+            <div class="flex flex-wrap items-center mt-6 w-full">
+                <div class="">
                     <a href="/"><img src="/assets/corona.png"/></a>
                 </div>
 
@@ -139,7 +139,7 @@
                                 class="absolute left-0 mt-2 rounded-md bg-white"
                             >
                             <div class="text-xs">
-                                <form method="POST" action="/logout">
+                                <form method="POST" action="{{route('logout')}}">
                                     @csrf
                                     <button type="submit">{{__('user.log_out')}}</button>
                                 </form>
@@ -155,7 +155,7 @@
                     </div>
                    
                     <div class="hidden lg:block lg:ml-6">
-                        <form method="POST" action="/logout">
+                        <form method="POST" action="{{route('logout')}}">
                             @csrf
                             <button type="submit">{{__('user.log_out')}}</button>
                         </form>
@@ -163,11 +163,11 @@
                     @endauth
                 </div>
                 
-                <div class="flex font-black text-xl mt-12 lg:ml-8 lg:w-[76.5rem]">
+                <div class="flex font-black text-xl mt-12 lg:w-[76.5rem]">
                     <h1 class="lg:justify-start flex justify-center">{{__('texts.worldwide_statistics')}}</h1>
                 </div>
 
-                <div class="lg:justify-start flex justify-center lg:ml-8 mt-6 lg:w-[76.5rem] border-b-2">
+                <div class="lg:justify-start flex justify-center mt-6 lg:w-[76.5rem] border-b-2">
                         <div class="border-b-4 border-black">
                             <h2 class="mb-2 font-black"><a href="/">{{__('texts.worldwide')}}</a></h2>
                         </div>

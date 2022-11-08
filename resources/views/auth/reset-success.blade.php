@@ -20,7 +20,7 @@
                 <div class="flex flex-col items-center justify-center h-96 lg:h-[37.5rem] w-full">
                     <img src="/assets/checked.png"/>
                     <p class="text-base lg:text-lg mt-4">{{__('user.your_password_has_been_updated_succesfully')}}</p>
-                    <button class="px-40 py-4 h-14 mt-7 lg:h-14 lg:w-96 lg:mt-24 flex justify-center items-center font-black text-white text-base bg-green-500 rounded"
+                    <button class="px-32 lg:px-40 py-4 h-14 mt-7 lg:h-14 lg:w-96 lg:mt-24 flex justify-center items-center font-black text-white text-base bg-green-500 rounded"
                     type="submit"><a href="{{ route('auth.create') }}">{{('user.log_in')}}</a></button>
                 </div>
 

@@ -14,7 +14,7 @@
 
         <div class="flex flex-col w-[23.4rem] lg:w-[90rem] lg:h-[69.5rem]">
             <div class="flex itmes-center flex-wrap mt-6 w-full">
-                <div class="ml-4 lg:ml-8">
+                <div class="ml-4">
                     <a href="/"><img src="/assets/corona.png"/></a>
                 </div>
                 
@@ -86,12 +86,12 @@
                     </div>
                     
                     @auth
-                    <div class="hidden lg:block lg:ml-8">
+                    <div class="hidden lg:block lg:ml-12">
                         <p class="font-black">{{ auth()->user()->username }}</p>
                     </div>
                     @endauth
                     <div class="hidden lg:block lg:ml-6">
-                        <form method="POST" action="/logout">
+                        <form method="POST" action="{{route('logout')}}">
                             @csrf
                             <button type="submit">{{__('user.log_out')}}</button>
                         </form>
@@ -153,7 +153,7 @@
                                     class="absolute left-0 mt-2 rounded-md bg-white"
                                 >
                                 <div class="text-xs">
-                                    <form method="POST" action="/logout">
+                                    <form method="POST" action="{{route('logout')}}">
                                         @csrf
                                         <button type="submit">{{__('user.log_out')}}</button>
                                     </form>
@@ -164,12 +164,12 @@
                         </div>
                         
                         @auth
-                        <div class="hidden lg:block lg:ml-8">
+                        <div class="hidden lg:block">
                             <p class="font-black">{{ auth()->user()->username }}</p>
                         </div>
                         @endauth
                         <div class="hidden lg:block lg:ml-6">
-                            <form method="POST" action="/logout">
+                            <form method="POST" action="{{route('logout')}}">
                                 @csrf
                                 <button type="submit">{{__('user.log_out')}}</button>
                             </form>
@@ -177,11 +177,11 @@
                     </div>
                 </div>
 
-                <div class="font-black text-xl lg:ml-8 mt-12 w-full ml-4">
+                <div class="font-black text-xl mt-12 w-full ml-4">
                     <h1 class="lg:justify-start flex ">{{__('texts.statistics_by_country')}}</h1>
                 </div>
 
-                <div class="justify-start flex mt-6 lg:w-[76.5rem] ml-4 lg:ml-8 border-b-2">
+                <div class="justify-start flex mt-6 lg:w-[76.5rem] ml-4 border-b-2">
                     <div>
                         <h2 class="mb-2"><a href="/">{{__('texts.worldwide')}}</a></h2>
                     </div>
@@ -192,18 +192,18 @@
                 </div>
             </div>
                 
-            <div class="flex items-center mt-6 lg:ml-8 w-64 lg:h-[3rem] lg:border">
-                <div class="flex rounded">
+            <div class="flex items-center mt-6 lg:ml-4 w-64 lg:w-72 lg:h-[3rem] lg:border rounded">
+                <div class="flex">
                 <img src="/assets/search.svg" class="ml-6 lg-ml:6 lg-h-[1.1rem]"/>
                 <form method="GET" action="#">
-                    <input type="text" name="search" placeholder="{{__('texts.search_by_country')}}" class="ml-2 w-full outline-none">
+                    <input type="text" name="search" placeholder="{{__('texts.search_by_country')}}" class="ml-2 w-52 outline-none">
                 </form>
             </div>
         </div>
 
             
             <div class="flex lg:justify-center ml-4 w-96 lg:w-[76.5rem]  mt-10 h-[25.8rem] lg:h-[37.5rem]">
-                <div class="overflow-x-auto">
+                <div class="overflow-x-hidden">
                 <table class="text-sm text-left text-gray-500 dark:text-gray-400 w-[23.4rem] lg:w-[76.5rem] overflow-y-auto">
                     <thead class="lg:w-[76.5rem] text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr class="flex w-20">
@@ -282,17 +282,17 @@
                     </thead>
                     <tbody>
                         @foreach ($stats as $stat)
-                        <tr class="flex h-12 bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="flex lg:w-20 lg:ml-5 w-10 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <tr class="flex bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                            <th scope="row" class="flex lg:w-20 lg:ml-5 w-10 break-wrods py-3 font-medium text-gray-900 dark:text-white">
                                 {{ $stat->country }}
                             </th>
-                            <td class="flex py-3 ml-20 lg:ml-[7.8rem] w-20">
+                            <td class="flex items-center py-3 ml-20 lg:ml-[7.8rem] w-20">
                                 {{ $stat->cases }} 
                             </td>
-                            <td class="py-3 w-20 lg:ml-44">
+                            <td class="flex py-3 items-center w-20 lg:ml-44">
                                 {{ $stat->death }}
                             </td>
-                            <td class="py-3 w-20 lg:ml-[9.5rem]">
+                            <td class="flex py-3 items-center w-20 lg:ml-[9.5rem]">
                                 {{ $stat->recovered }}
                             </td>
                         </tr>

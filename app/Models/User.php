@@ -9,18 +9,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-// use Illuminate\Contracts\Auth\CanResetPassword;
-// use Illuminate\Auth\Passwords\CanResetPassword;
-
 class User extends Authenticatable implements MustVerifyEmail
 {
+	use HasApiTokens, HasFactory, Notifiable;
+
 	protected $guarded = ['id'];
-
-	use HasApiTokens;
-
-	use HasFactory;
-
-	use Notifiable;
 
 	/**
 	 * The attributes that are mass assignable.

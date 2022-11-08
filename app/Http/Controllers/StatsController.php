@@ -13,13 +13,16 @@ class StatsController extends Controller
 
 		if (request('search'))
 		{
-			$stats = Stats::where('country->en', 'like', '' . ucfirst(request('search')) . '%')
-			->orwhere('country->ka', 'like', '' . ucfirst(request('search')) . '%')->get();
+			$stats = Stats::query()
+				->where('country->en', 'like', '' . ucfirst(request('search')) . '%')
+				->orwhere('country->ka', 'like', '' . ucfirst(request('search')) . '%')
+				->get();
 		}
 
 		if (request('column'))
 		{
-			$stats = Stats::where('country->en', 'like', '' . ucfirst(request('search')) . '%')
+			$stats = Stats::query()
+			->where('country->en', 'like', '' . ucfirst(request('search')) . '%')
 			->orwhere('country->ka', 'like', '' . ucfirst(request('search')) . '%')
 			->orderBy(request('column') === 'country' ? request('column') . '->en' : request('column'), request('order'))
 			->get();
